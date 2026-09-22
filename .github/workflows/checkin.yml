@@ -2,8 +2,7 @@ name: Multi-site New API Check-in
 
 on:
   schedule:
-    # 每日 UTC 22:45 = 北京时间 06:45
-    - cron: '45 22 * * *'
+    - cron: '0 18 * * *' # UTC 18:00（北京时间 02:00）自动运行
 
   # 支持手动触发
   workflow_dispatch:
@@ -27,7 +26,7 @@ jobs:
       # 1. Checkout
       # ==========================================
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -35,7 +34,7 @@ jobs:
       # 2. Setup Python
       # ==========================================
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
           cache: 'pip'
