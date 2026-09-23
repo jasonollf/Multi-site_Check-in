@@ -75,7 +75,7 @@ jobs:
       # ==========================================
       - name: Cache Camoufox browser
         id: camoufox-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/camoufox
           key: ${{ runner.os }}-camoufox-${{ steps.camoufox-version.outputs.version }}
